@@ -10,7 +10,7 @@ const images = [
 function ScratchCards() {
   return (
     <div className="container bg-light" style={{ height: "90vh"}}>
-      <h1>Digital Scratchcard</h1>
+      <h1 className='text-3xl text-center'>Digital Scratchcard</h1>
       <div className="row justify-content-center mt-3">
         <div className="col-sm-4 col-lg-2">
           <ScratchCard image={images[0]} />
