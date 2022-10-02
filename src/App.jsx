@@ -5,7 +5,6 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
   RainbowKitProvider,
-  ConnectButton
 } from '@rainbow-me/rainbowkit';
 import {
   chain,
@@ -16,6 +15,7 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
+import Navbar from './components/layout/Navbar';
 import ScratchCards from './pages/ScratchCards';
 import { ALCHEMY_ID } from './config';
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <ConnectButton />
+        <Navbar />
         <ScratchCards />
       </RainbowKitProvider>
     </WagmiConfig>
