@@ -9,38 +9,38 @@ const images = [
 
 function ScratchCards() {
   return (
-    <div className="container bg-light" style={{ height: "90vh"}}>
+    <div className="container mx-auto bg-slate-50" style={{ height: "80vh"}}>
       <h1 className='text-3xl text-center'>Digital Scratchcard</h1>
-      <div className="row justify-content-center mt-3">
-        <div className="col-sm-4 col-lg-2">
+      <div className="flex justify-content-center mx-auto mt-5" style={{ maxWidth: "800px" }}>
+        <div className="w-4/12">
           <ScratchCard image={images[0]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[2]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[1]} />
         </div>
       </div>
-      <div className="row justify-content-center" style={{ marginTop: '10rem'}}>
-        <div className="col-sm-4 col-lg-2">
+      <div className="flex justify-content-center mx-auto" style={{ marginTop: '10rem', maxWidth: "800px"}}>
+        <div className="w-4/12">
           <ScratchCard image={images[0]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[2]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[1]} />
         </div>
       </div>
-      <div className="row justify-content-center" style={{ marginTop: '10rem'}}>
-        <div className="col-sm-4 col-lg-2">
+      <div className="flex justify-content-center mx-auto" style={{ marginTop: '10rem', maxWidth: "800px"}}>
+        <div className="w-4/12">
           <ScratchCard image={images[0]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[2]} />
         </div>
-        <div className="col-sm-4 col-lg-2">
+        <div className="w-4/12">
           <ScratchCard image={images[1]} />
         </div>
       </div>

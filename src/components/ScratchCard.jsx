@@ -3,7 +3,7 @@ import Sketch from "react-p5";
 
 function ScratchCard({ image }) {
   const setup = (p5, canvasParentRef) => {
-    p5.createCanvas(200, 200).parent(canvasParentRef);
+    p5.createCanvas(270, 180).parent(canvasParentRef);
   };
 
   const draw = (p5) => {
