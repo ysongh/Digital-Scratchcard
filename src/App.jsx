@@ -20,7 +20,7 @@ import ScratchCards from './pages/ScratchCards';
 import { ALCHEMY_ID } from './config';
 
 const { chains, provider } = configureChains(
-  [chain.mainnet, chain.polygon, chain.optimism, chain.arbitrum],
+  [chain.goerli, chain.polygonMumbai],
   [
     alchemyProvider({ apiKey: ALCHEMY_ID }),
     publicProvider()
