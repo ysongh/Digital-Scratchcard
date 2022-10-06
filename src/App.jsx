@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -44,8 +45,19 @@ function App() {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-        <Navbar />
-        <ScratchCards />
+        <HashRouter>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/scratchcard"
+              element={
+                <ScratchCards />} />
+            <Route
+              path="/"
+              element={
+                <h1>Home</h1>} />
+          </Routes>
+        </HashRouter>
       </RainbowKitProvider>
     </WagmiConfig>
   )
