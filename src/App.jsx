@@ -42,6 +42,8 @@ const wagmiClient = createClient({
 function App() {
   const [count, setCount] = useState(0)
 
+  console.log(wagmiClient)
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>

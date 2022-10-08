@@ -1,5 +1,8 @@
 import React from 'react';
+import { useContractRead } from 'wagmi';
+
 import ScratchCard from '../components/ScratchCard';
+import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contract-config';
 
 const images = [
   "https://images.unsplash.com/photo-1590959651373-a3db0f38a961?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hhcGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
@@ -8,6 +11,18 @@ const images = [
 ]
 
 function ScratchCards() {
+  const { data, isError, isLoading } = useContractRead({
+    addressOrName: CONTRACT_ADDRESS,
+    contractInterface: CONTRACT_ABI,
+    functionName: 'fillScratchCard',
+    onSuccess(data) {
+      console.log('Success', data)
+    },
+    onError(error) {
+      console.error('Error', error)
+    },
+  });
+
   return (
     <div className="container mx-auto bg-slate-50" style={{ height: "80vh"}}>
       <h1 className='text-3xl text-center'>Digital Scratchcard</h1>
