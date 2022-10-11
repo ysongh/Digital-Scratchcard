@@ -2,6 +2,14 @@
 pragma solidity ^0.8.9;
 
 contract Scratchcard {
+    uint public imageTotal = 0;
+    mapping(uint => string) public imageList;
+
+    function addImage(string memory _imageURL) external {
+        imageList[imageTotal] = _imageURL;
+        imageTotal++;
+    }
+
     function fillScratchCard() external view returns (uint256[] memory) {
         uint256[] memory numbers = new uint256[](9);
 
