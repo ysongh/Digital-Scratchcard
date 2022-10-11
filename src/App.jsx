@@ -17,6 +17,7 @@ import { publicProvider } from 'wagmi/providers/public';
 
 import Navbar from './components/layout/Navbar';
 import ScratchCards from './pages/ScratchCards';
+import AddAdvertisement from './pages/AddAdvertisement';
 import { ALCHEMY_ID } from './config';
 
 const { chains, provider } = configureChains(
@@ -49,6 +50,10 @@ function App() {
         <HashRouter>
           <Navbar />
           <Routes>
+            <Route
+              path="/add-advertisement"
+              element={
+                <AddAdvertisement />} />
             <Route
               path="/scratchcard"
               element={

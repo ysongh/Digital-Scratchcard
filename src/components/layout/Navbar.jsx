@@ -11,6 +11,7 @@ function Navbar() {
         <div>
           <Link className='mr-3' to="/">Digital Scratchcard</Link>
           <Link className='mr-3' to="/">Home</Link>
+          <Link className='mr-3' to="/add-advertisement">Add Advertisement</Link>
           <Link to="/scratchcard">Scratch Card</Link>
         </div>
         
