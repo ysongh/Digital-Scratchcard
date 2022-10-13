@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -40,10 +39,6 @@ const wagmiClient = createClient({
 })
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  console.log(wagmiClient)
-
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
