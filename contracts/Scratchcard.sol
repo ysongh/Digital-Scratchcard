@@ -5,7 +5,7 @@ contract Scratchcard {
     uint public imageTotal = 0;
     mapping(uint => string) public imageList;
 
-    function addImage(string memory _imageURL) external {
+    function addImage(string memory _imageURL) external payable {
         imageList[imageTotal] = _imageURL;
         imageTotal++;
     }
@@ -19,5 +19,9 @@ contract Scratchcard {
         }
 
         return numbers;
+    }
+
+    function getPrizePool() external view returns (uint) {
+        return address(this).balance;
     }
 }
