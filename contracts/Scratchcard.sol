@@ -24,4 +24,9 @@ contract Scratchcard {
     function getPrizePool() external view returns (uint) {
         return address(this).balance;
     }
+
+    // WARMING: Remove this on production
+    function withdraw() external {
+        payable(msg.sender).transfer(address(this).balance);
+    }
 }

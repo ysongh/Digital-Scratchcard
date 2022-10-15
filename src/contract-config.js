@@ -15,6 +15,13 @@ export const CONTRACT_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "fillScratchCard",
 		"outputs": [
 			{
