@@ -14,7 +14,7 @@ contract Scratchcard {
         uint256[] memory numbers = new uint256[](9);
 
         for(uint i = 0; i < 9; i++){
-            uint256 _randomNumber = uint256(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % 8 + 1;        // 1 - 8
+            uint256 _randomNumber = uint256(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % imageTotal + 1;
             numbers[i] =_randomNumber;
         }
 
@@ -26,7 +26,7 @@ contract Scratchcard {
     }
 
     // WARMING: Remove this on production
-    function withdraw() external {
+    function withdrawETH() external {
         payable(msg.sender).transfer(address(this).balance);
     }
 }
