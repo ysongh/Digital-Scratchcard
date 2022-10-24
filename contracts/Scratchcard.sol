@@ -15,7 +15,7 @@ contract Scratchcard {
 
         for(uint i = 0; i < 9; i++){
             uint _randomNumber = uint(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % imageTotal + 1;
-            imageURLs[i] = imageList[_randomNumber];
+            imageURLs[i] = imageList[_randomNumber - 1];
         }
 
         return imageURLs;
