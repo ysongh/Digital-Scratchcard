@@ -10,15 +10,15 @@ contract Scratchcard {
         imageTotal++;
     }
 
-    function fillScratchCard() external view returns (uint256[] memory) {
-        uint256[] memory numbers = new uint256[](9);
+    function fillScratchCard() external view returns (string[] memory) {
+        string[] memory imageURLs = new string[](9);
 
         for(uint i = 0; i < 9; i++){
-            uint256 _randomNumber = uint256(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % imageTotal + 1;
-            numbers[i] =_randomNumber;
+            uint _randomNumber = uint(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % imageTotal + 1;
+            imageURLs[i] = imageList[_randomNumber];
         }
 
-        return numbers;
+        return imageURLs;
     }
 
     function getPrizePool() external view returns (uint) {
