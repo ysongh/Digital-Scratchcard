@@ -6,7 +6,7 @@ import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contract-config';
 
 function ScratchCards() {
   const [numbers, setNumbers] = useState([]);
-  const { data, isError, isLoading } = useContractRead({
+  useContractRead({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: CONTRACT_ABI,
     functionName: 'fillScratchCard',
