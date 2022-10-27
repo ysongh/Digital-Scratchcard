@@ -5,6 +5,9 @@ contract Scratchcard {
     uint public imageTotal = 0;
     mapping(uint => string) public imageList;
     uint public numberOfPlays = 0;
+    mapping(address => uint) public cooldown;
+
+    uint immutable COOLDOWN_TIME = 3;
 
     function addImage(string memory _imageURL) external payable {
         imageList[imageTotal] = _imageURL;
@@ -12,6 +15,9 @@ contract Scratchcard {
     }
 
     function playGame() external returns (string[] memory) {
+        require(cooldown[msg.sender] < block.timestamp, "Try again later");
+        cooldown[msg.sender] = block.timestamp + COOLDOWN_TIME;
+
         string[] memory imageURLs = fillScratchCard();
         numberOfPlays += 1;
 
