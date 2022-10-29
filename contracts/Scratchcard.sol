@@ -6,7 +6,7 @@ contract Scratchcard {
     mapping(uint => string) public imageList;
     uint public numberOfPlays = 0;
     mapping(address => uint) public cooldown;
-     mapping (uint => PlayerCard) cardlist;
+    mapping (uint => PlayerCard) cardlist;
 
     uint immutable COOLDOWN_TIME = 3;
 
@@ -27,15 +27,9 @@ contract Scratchcard {
         string[] memory imageURLs = fillScratchCard();
         numberOfPlays += 1;
 
-        PlayerCard storage currentCard = cardlist[numberOfPlays];
-        currentCard.id = numberOfPlays;
+        bool isWinner = checkForMatching(imageURLs);
 
-        for(uint i = 0; i < 9; i++){
-            currentCard.sameImageCount[imageURLs[i]] += 1;
-            if(currentCard.sameImageCount[imageURLs[i]] == 3) return (imageURLs, true);
-        }
-
-        return (imageURLs, false);
+        return (imageURLs, isWinner);
     }
 
     function fillScratchCard() internal view returns (string[] memory) {
@@ -47,6 +41,18 @@ contract Scratchcard {
         }
 
         return imageURLs;
+    }
+
+    function checkForMatching(string[] memory imageURLs) internal returns (bool) {
+        PlayerCard storage currentCard = cardlist[numberOfPlays];
+        currentCard.id = numberOfPlays;
+
+        for(uint i = 0; i < 9; i++){
+            currentCard.sameImageCount[imageURLs[i]] += 1;
+            if(currentCard.sameImageCount[imageURLs[i]] == 3) return true;
+        }
+
+        return false;
     }
 
     function getPrizePool() external view returns (uint) {
