@@ -6,22 +6,36 @@ contract Scratchcard {
     mapping(uint => string) public imageList;
     uint public numberOfPlays = 0;
     mapping(address => uint) public cooldown;
+     mapping (uint => PlayerCard) cardlist;
 
     uint immutable COOLDOWN_TIME = 3;
+
+    struct PlayerCard {
+        uint id;
+        mapping(string => uint) sameImageCount;
+    }
 
     function addImage(string memory _imageURL) external payable {
         imageList[imageTotal] = _imageURL;
         imageTotal++;
     }
 
-    function playGame() external returns (string[] memory) {
+    function playGame() external returns (string[] memory, bool) {
         require(cooldown[msg.sender] < block.timestamp, "Try again later");
         cooldown[msg.sender] = block.timestamp + COOLDOWN_TIME;
 
         string[] memory imageURLs = fillScratchCard();
         numberOfPlays += 1;
 
-        return imageURLs;
+        PlayerCard storage currentCard = cardlist[numberOfPlays];
+        currentCard.id = numberOfPlays;
+
+        for(uint i = 0; i < 9; i++){
+            currentCard.sameImageCount[imageURLs[i]] += 1;
+            if(currentCard.sameImageCount[imageURLs[i]] == 3) return (imageURLs, true);
+        }
+
+        return (imageURLs, false);
     }
 
     function fillScratchCard() internal view returns (string[] memory) {
