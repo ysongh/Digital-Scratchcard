@@ -18,9 +18,10 @@ import Navbar from './components/layout/Navbar';
 import ScratchCards from './pages/ScratchCards';
 import AddAdvertisement from './pages/AddAdvertisement';
 import { ALCHEMY_ID } from './config';
+import { TrustEVMTestnet } from './chain'
 
 const { chains, provider } = configureChains(
-  [chain.goerli, chain.polygonMumbai],
+  [TrustEVMTestnet, chain.goerli, chain.polygonMumbai],
   [
     alchemyProvider({ apiKey: ALCHEMY_ID }),
     publicProvider()
