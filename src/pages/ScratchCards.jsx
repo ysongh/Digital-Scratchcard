@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
-import { useContractRead } from 'wagmi';
+import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
 
 import ScratchCard from '../components/ScratchCard';
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contract-config';
 
 function ScratchCards() {
+  const { isConnected } = useAccount();
+
   const [numbers, setNumbers] = useState([]);
-  useContractRead({
+
+  const { config } = usePrepareContractWrite({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: CONTRACT_ABI,
-    functionName: 'fillScratchCard',
-    onSuccess(data) {
-      console.log('Success', data);
-      setNumbers(data);
-    },
-    onError(error) {
-      console.error('Error', error);
-    },
+    functionName: 'playGame',
   });
+
+  const { data, isLoading, isSuccess, write } = useContractWrite(config);
+  console.log(data, isSuccess)
 
   return (
     <div className="container mx-auto bg-slate-50" style={{ height: "80vh"}}>
       <h1 className='text-3xl text-center'>Digital Scratchcard</h1>
+      {isConnected && <button className='py-2 px-4 mt-3 text-white bg-blue-600 rounded baseline hover:bg-blue-400' onClick={() => write?.()}>
+        Play Scratch Card
+      </button>}
+      {isLoading && <div>Check Wallet</div>}
+      {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
       <div className="flex justify-content-center mx-auto mt-5" style={{ maxWidth: "800px" }}>
         <div className="w-4/12">
           <ScratchCard image={numbers[0]} />

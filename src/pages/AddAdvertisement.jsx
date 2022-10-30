@@ -15,7 +15,7 @@ function AddAdvertisement() {
     functionName: 'addImage',
     args: [url],
     overrides: {
-      value: ethers.utils.parseEther('0.001'),
+      value: ethers.utils.parseEther('0'),
     },
   })
   const { data, isLoading, isSuccess, write } = useContractWrite(config);

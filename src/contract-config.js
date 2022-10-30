@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0xba542E18a9d67d015ce68c22C6b8a30698B26179";
+export const CONTRACT_ADDRESS = "0xFda2FCAB7c8c2FDB3Ef69C37Ee94f1e7A94f0eD3";
 export const CONTRACT_ABI = [
 	{
 		"inputs": [
@@ -15,19 +15,43 @@ export const CONTRACT_ABI = [
 	},
 	{
 		"inputs": [],
+		"name": "playGame",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "withdrawETH",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "fillScratchCard",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "cooldown",
 		"outputs": [
 			{
-				"internalType": "string[]",
+				"internalType": "uint256",
 				"name": "",
-				"type": "string[]"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -68,6 +92,19 @@ export const CONTRACT_ABI = [
 	{
 		"inputs": [],
 		"name": "imageTotal",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "numberOfPlays",
 		"outputs": [
 			{
 				"internalType": "uint256",
