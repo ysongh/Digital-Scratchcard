@@ -28,6 +28,7 @@ function AddAdvertisement() {
         <label htmlFor='url' className='block font-medium text-gray-700'>URL of the Image</label>
         <input className='w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm' id='url' onChange={(e) => setURL(e.target.value)}/>
 
+        <p className='text-slate-500'>* 1 Trust EVM Tokens for 5 days of Advertisement on Scratch Card</p>
         {isConnected && <button className='py-2 px-4 mt-3 text-white bg-blue-600 rounded baseline hover:bg-blue-400' onClick={() => write?.()}>
           Create
         </button>}
