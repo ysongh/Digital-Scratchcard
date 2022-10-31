@@ -10,6 +10,8 @@ contract Scratchcard {
 
     uint immutable COOLDOWN_TIME = 3;
 
+    event CardResult(address player, string[] imageURLs, bool isMatch);
+
     struct PlayerCard {
         uint id;
         mapping(string => uint) sameImageCount;
@@ -20,7 +22,7 @@ contract Scratchcard {
         imageTotal++;
     }
 
-    function playGame() external returns (string[] memory, bool) {
+    function playGame() external{
         require(cooldown[msg.sender] < block.timestamp, "Try again later");
         cooldown[msg.sender] = block.timestamp + COOLDOWN_TIME;
 
@@ -29,7 +31,7 @@ contract Scratchcard {
 
         bool isWinner = checkForMatching(imageURLs);
 
-        return (imageURLs, isWinner);
+        emit CardResult(msg.sender, imageURLs, isWinner);
     }
 
     function fillScratchCard() internal view returns (string[] memory) {

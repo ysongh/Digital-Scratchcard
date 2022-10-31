@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0xFda2FCAB7c8c2FDB3Ef69C37Ee94f1e7A94f0eD3";
+export const CONTRACT_ADDRESS = "0x0f460e69a281Ed755cDf1eC3ccbE865f635155BE";
 export const CONTRACT_ABI = [
 	{
 		"inputs": [
@@ -14,20 +14,34 @@ export const CONTRACT_ABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "playGame",
-		"outputs": [
+		"anonymous": false,
+		"inputs": [
 			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "player",
+				"type": "address"
+			},
+			{
+				"indexed": false,
 				"internalType": "string[]",
-				"name": "",
+				"name": "imageURLs",
 				"type": "string[]"
 			},
 			{
+				"indexed": false,
 				"internalType": "bool",
-				"name": "",
+				"name": "isMatch",
 				"type": "bool"
 			}
 		],
+		"name": "CardResult",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "playGame",
+		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
