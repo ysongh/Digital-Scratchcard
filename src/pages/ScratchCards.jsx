@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
+import { useAccount, useContractEvent, useContractWrite, usePrepareContractWrite } from 'wagmi';
 
 import ScratchCard from '../components/ScratchCard';
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contract-config';
@@ -8,6 +8,16 @@ function ScratchCards() {
   const { isConnected } = useAccount();
 
   const [numbers, setNumbers] = useState([]);
+
+  useContractEvent({
+    addressOrName: CONTRACT_ADDRESS,
+    contractInterface: CONTRACT_ABI,
+    eventName: 'CardResult',
+    listener(node) {
+      console.log(node);
+      setNumbers(node[1]);
+    },
+  })
 
   const { config } = usePrepareContractWrite({
     addressOrName: CONTRACT_ADDRESS,
