@@ -15,6 +15,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 import Navbar from './components/layout/Navbar';
+import Home from './pages/Home';
 import ScratchCards from './pages/ScratchCards';
 import AddAdvertisement from './pages/AddAdvertisement';
 import { ALCHEMY_ID } from './config';
@@ -57,7 +58,7 @@ function App() {
             <Route
               path="/"
               element={
-                <h1>Home</h1>} />
+                <Home /> } />
           </Routes>
         </HashRouter>
       </RainbowKitProvider>
