@@ -33,12 +33,15 @@ function ScratchCards() {
 
   return (
     <div className="container mx-auto bg-slate-50" style={{ height: "80vh"}}>
-      <h1 className='text-3xl text-center'>Digital Scratchcard</h1>
-      {isConnected && <button className='py-2 px-4 mt-3 text-white bg-blue-600 rounded baseline hover:bg-blue-400' onClick={() => write?.()}>
-        Play Scratch Card
-      </button>}
-      {isLoading && <div>Check Wallet</div>}
-      {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
+      <h1 className='text-3xl text-center mt-1'>Matches 3 images to win a piece of the prize pool</h1>
+      <center>
+        {isConnected && <button className='py-2 px-4 mb-1 mt-3 text-white bg-blue-600 rounded baseline hover:bg-blue-400' onClick={() => write?.()}>
+          Play Scratch Card
+        </button>}
+        {isLoading && <div>Check Wallet</div>}
+        {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
+      </center>
+      
       <p className="text-xl text-center mt-3" >{isMatch}</p>
       {isSuccess && <>
         <div className="flex justify-content-center mx-auto mt-4" style={{ maxWidth: "800px" }}>
