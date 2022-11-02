@@ -9,6 +9,7 @@ function ScratchCards() {
 
   const [numbers, setNumbers] = useState([]);
   const [isMatch, setIsMatch] = useState("");
+  const [showCard, setShowCard] = useState(false);
 
   useContractEvent({
     addressOrName: CONTRACT_ADDRESS,
@@ -17,8 +18,9 @@ function ScratchCards() {
     listener(node) {
       console.log(node);
       setNumbers(node[1]);
-      if(node[2])setTimeout(setIsMatch("You Win!"), 3000);
-      if(!node[2])setTimeout(setIsMatch("No Match, Try Again!"), 3000);
+      setShowCard(true);
+      if(node[2])setTimeout(setIsMatch("You Win!"), 10000);
+      if(!node[2])setTimeout(setIsMatch("No Match, Try Again!"), 10000);
     },
   })
 
@@ -43,7 +45,7 @@ function ScratchCards() {
       </center>
       
       <p className="text-xl text-center mt-3" >{isMatch}</p>
-      {isSuccess && <>
+      {showCard && <>
         <div className="flex justify-content-center mx-auto mt-4" style={{ maxWidth: "800px" }}>
           <div className="w-4/12">
             <ScratchCard image={numbers[0]} />
