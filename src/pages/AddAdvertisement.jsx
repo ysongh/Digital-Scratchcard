@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { ethers } from 'ethers';
+import { Web3Storage } from 'web3.storage';
 
 import { CONTRACT_ADDRESS, CONTRACT_ABI } from '../contract-config';
+import { WEB3STORAGE_APIKEY } from '../config'
+const client = new Web3Storage({ token: WEB3STORAGE_APIKEY });
 
 function AddAdvertisement() {
   const { isConnected } = useAccount();
@@ -26,6 +29,17 @@ function AddAdvertisement() {
     const image = event.target.files[0];
     console.log(image);
     setImageFile(image);
+
+    const cid = await client.put([image], {
+      onRootCidReady: localCid => {
+        console.log(`> 🔑 locally calculated Content ID: ${localCid} `)
+        console.log('> 📡 sending files to web3.storage ')
+      },
+      onStoredChunk: bytes => console.log(`> 🛰 sent ${bytes.toLocaleString()} bytes to web3.storage`)
+    })
+
+    console.log(`https://dweb.link/ipfs/${cid}/${image.name}`);
+    setURL(`https://dweb.link/ipfs/${cid}/${image.name}`);
   }
 
   return (
