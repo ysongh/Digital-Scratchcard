@@ -8,6 +8,7 @@ function AddAdvertisement() {
   const { isConnected } = useAccount();
 
   const [url, setURL] = useState("");
+  const [imageFile, setImageFile] = useState(null);
 
   const { config } = usePrepareContractWrite({
     addressOrName: CONTRACT_ADDRESS,
@@ -21,12 +22,29 @@ function AddAdvertisement() {
   const { data, isLoading, isSuccess, write } = useContractWrite(config);
   console.log(data, isLoading, isSuccess, write);
 
+  async function handleUpload(event) {
+    const image = event.target.files[0];
+    console.log(image);
+    setImageFile(image);
+  }
+
   return (
     <div className='relative container mx-auto'>
       <h1 className='text-2xl mt-3'>Add Your Advertisement</h1>
       <div className='mt-3' style={{ maxWidth: '600px'}}>
-        <label htmlFor='url' className='block font-medium text-gray-700'>URL of the Image</label>
-        <input className='w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm' id='url' onChange={(e) => setURL(e.target.value)}/>
+        <label className="block mb-2">
+          <span className="sr-only">Choose profile photo</span>
+          <input type="file" id="userPhoto" onChange={handleUpload} className="block w-full text-sm text-slate-500
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-violet-50 file:text-violet-700
+            hover:file:bg-violet-100
+          "/>
+        </label>
+        <div className="shrink-0">
+          {imageFile && <img className="object-cover" src={URL.createObjectURL(imageFile)} alt="Current profile photo" /> }
+        </div>
 
         <p className='text-slate-500'>* 1 Trust EVM Tokens for 5 days of Advertisement on Scratch Card</p>
         {isConnected && <button className='py-2 px-4 mt-3 text-white bg-blue-600 rounded baseline hover:bg-blue-400' onClick={() => write?.()}>
