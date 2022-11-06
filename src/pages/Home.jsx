@@ -13,7 +13,7 @@ function Home() {
           <button className="py-2 px-4 mt-3 mr-3 text-white bg-primarycolor rounded baseline hover:bg-primarycolorhover" onClick={() => navigate('/scratchcard')}>
             Play Card
           </button>
-          <button className="py-2 px-4 mt-3 text-white bg-secondarycolor rounded baseline hover:bg-secondarycolorhover" onClick={() => navigate('/add-advertisement')}>
+          <button className="py-2 px-4 mt-3 bg-secondarycolor rounded baseline hover:bg-secondarycolorhover" onClick={() => navigate('/add-advertisement')}>
             Add Advertisement
           </button>
         </div>

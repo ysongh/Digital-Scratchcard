@@ -13,6 +13,7 @@ module.exports = {
       'primarycolorhover': '#ec7395',
       'secondarycolor': '#fccf4d',
       'secondarycolorhover': '#fce089',
+      'white': '#fcfafa'
     },
   },
   plugins: [],
