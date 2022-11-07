@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="md:grid grid-cols-2 gap-4 p-2 md:p-0">
         <div>
           <h1 className="text-4xl font-bold mt-20 mb-4">Digital Scratch Card</h1>
           <p className="text-md mb-4">Free 1 play per day and match 3 to win.</p>
