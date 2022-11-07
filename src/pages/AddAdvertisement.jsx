@@ -61,7 +61,7 @@ function AddAdvertisement() {
         </div>
 
         <p className='text-slate-500'>* 1 Trust EVM Tokens for 5 days of Advertisement on Scratch Card</p>
-        {isConnected && <button className='py-2 px-4 mt-3 bg-secondarycolor rounded baseline hover:bg-secondarycolorhover' onClick={() => write?.()} disabled={isLoading || !url}>
+        {isConnected && <button className='py-2 px-4 mt-3 bg-secondarycolor rounded baseline hover:bg-secondarycolorhover disabled:opacity-50' onClick={() => write?.()} disabled={isLoading || !url}>
           Create
         </button>}
         {isLoading && <div>Check Wallet</div>}
