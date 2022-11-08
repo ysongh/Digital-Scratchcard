@@ -50,7 +50,12 @@ code {
   user-select: none;
 }
 
-
+.advertisement-img {
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+  background-color: #f4f4ed;
+}
 
 canvas {
   position: absolute;

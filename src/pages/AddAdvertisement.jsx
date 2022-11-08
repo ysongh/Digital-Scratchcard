@@ -57,7 +57,7 @@ function AddAdvertisement() {
           "/>
         </label>
         <div className="shrink-0">
-          {imageFile && <img className="object-cover" src={URL.createObjectURL(imageFile)} alt="Current profile photo" /> }
+          {imageFile && <img className='advertisement-img mt-4 mb-3' src={URL.createObjectURL(imageFile)} alt="Current profile photo" /> }
         </div>
 
         <p className='text-slate-500'>* 1 Trust EVM Tokens for 5 days of Advertisement on Scratch Card</p>
