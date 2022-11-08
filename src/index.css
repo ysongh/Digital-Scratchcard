@@ -57,6 +57,11 @@ code {
   background-color: #f4f4ed;
 }
 
+.logo {
+  width: 100px;
+  display: inline;
+}
+
 canvas {
   position: absolute;
   width: 50%;
