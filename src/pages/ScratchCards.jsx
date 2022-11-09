@@ -35,7 +35,7 @@ function ScratchCards() {
 
   return (
     <div className="container mx-auto bg-slate-50" style={{ height: "80vh"}}>
-      <h1 className='text-3xl text-center mt-1'>Matches 3 images to win a piece of the prize pool</h1>
+      <h1 className='text-3xl text-center mt-5'>Matches 3 images to win a piece of the prize pool</h1>
       <center>
         {isConnected && <button className='py-2 px-4 mb-1 mt-3 text-white bg-primarycolor rounded baseline hover:bg-primarycolorhover disabled:opacity-50' onClick={() => write?.()} disabled={isLoading}>
           Play Scratch Card

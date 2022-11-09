@@ -44,7 +44,7 @@ function AddAdvertisement() {
 
   return (
     <div className='relative container mx-auto'>
-      <h1 className='text-2xl mt-3'>Add Your Advertisement</h1>
+      <h1 className='text-2xl font-semibold mt-5'>Add Your Advertisement</h1>
       <div className='mt-3' style={{ maxWidth: '600px'}}>
         <label className="block mb-2">
           <span className="sr-only">Choose profile photo</span>
