@@ -4,6 +4,8 @@ pragma solidity ^0.8.9;
 contract Scratchcard {
     uint public imageTotal = 0;
     mapping(uint => string) public imageList;
+    string[] public images;
+
     uint public numberOfPlays = 0;
     mapping(address => uint) public cooldown;
     mapping (uint => PlayerCard) cardlist;
@@ -19,6 +21,7 @@ contract Scratchcard {
 
     function addImage(string memory _imageURL) external payable {
         imageList[imageTotal] = _imageURL;
+        images.push(_imageURL);
         imageTotal++;
     }
 
@@ -59,6 +62,10 @@ contract Scratchcard {
 
     function getPrizePool() external view returns (uint) {
         return address(this).balance;
+    }
+
+    function getAdvertisement() external view returns (string[] memory) {
+        return images;
     }
 
     // WARMING: Remove this on production
