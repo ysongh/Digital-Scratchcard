@@ -3,7 +3,6 @@ pragma solidity ^0.8.9;
 
 contract Scratchcard {
     uint public imageTotal = 0;
-    mapping(uint => string) public imageList;
     string[] public images;
 
     uint public numberOfPlays = 0;
@@ -20,7 +19,6 @@ contract Scratchcard {
     }
 
     function addImage(string memory _imageURL) external payable {
-        imageList[imageTotal] = _imageURL;
         images.push(_imageURL);
         imageTotal++;
     }
@@ -42,7 +40,7 @@ contract Scratchcard {
 
         for(uint i = 0; i < 9; i++){
             uint _randomNumber = uint(keccak256(abi.encode(block.timestamp, block.difficulty, msg.sender, i))) % imageTotal;
-            imageURLs[i] = imageList[_randomNumber];
+            imageURLs[i] = images[_randomNumber];
         }
 
         return imageURLs;
