@@ -56,6 +56,7 @@ function AddAdvertisement() {
             hover:file:bg-violet-100
           "/>
         </label>
+        <p>{url}</p>
         <div className="shrink-0">
           {imageFile && <img className='advertisement-img mt-4 mb-3' src={URL.createObjectURL(imageFile)} alt="Current profile photo" /> }
         </div>
