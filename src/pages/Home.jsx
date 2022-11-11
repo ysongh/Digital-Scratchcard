@@ -5,7 +5,7 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto px-2 md:px-20">
       <div className="md:grid grid-cols-2 gap-4 p-2 md:p-0">
         <div>
           <h1 className="text-4xl font-bold mt-20 mb-4">Digital Scratch Card</h1>

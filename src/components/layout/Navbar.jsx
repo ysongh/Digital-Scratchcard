@@ -8,7 +8,7 @@ import Logo from '../../assets/Logo.png'
 
 function Navbar() {
   return (
-    <nav className="relative bg-navbar p-3">
+    <nav className="relative bg-navbar px-2 md:px-20 py-3">
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <div>

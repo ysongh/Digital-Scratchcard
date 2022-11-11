@@ -43,7 +43,7 @@ function AddAdvertisement() {
   }
 
   return (
-    <div className='relative container mx-auto'>
+    <div className="mx-auto px-2 md:px-20">
       <h1 className='text-2xl font-semibold mt-5'>Add Your Advertisement</h1>
       <div className='mt-3' style={{ maxWidth: '600px'}}>
         <label className="block mb-2">
