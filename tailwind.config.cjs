@@ -14,7 +14,8 @@ module.exports = {
       'secondarycolor': '#fccf4d',
       'secondarycolorhover': '#fce089',
       'navbar': '#f2e1ac',
-      'white': '#fcfafa'
+      'white': '#fcfafa',
+      'grey': '#5c5c59'
     },
   },
   plugins: [],
