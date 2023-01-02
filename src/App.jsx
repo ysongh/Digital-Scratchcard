@@ -15,6 +15,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import ScratchCards from './pages/ScratchCards';
 import AddAdvertisement from './pages/AddAdvertisement';
@@ -46,20 +47,23 @@ function App() {
       <RainbowKitProvider chains={chains}>
         <HashRouter>
           <Navbar />
-          <Routes>
-            <Route
-              path="/add-advertisement"
-              element={
-                <AddAdvertisement />} />
-            <Route
-              path="/scratchcard"
-              element={
-                <ScratchCards />} />
-            <Route
-              path="/"
-              element={
-                <Home /> } />
-          </Routes>
+          <div style={{ minHeight: '80vh'}}>
+            <Routes>
+              <Route
+                path="/add-advertisement"
+                element={
+                  <AddAdvertisement />} />
+              <Route
+                path="/scratchcard"
+                element={
+                  <ScratchCards />} />
+              <Route
+                path="/"
+                element={
+                  <Home /> } />
+            </Routes>
+          </div>
+          <Footer />
         </HashRouter>
       </RainbowKitProvider>
     </WagmiConfig>
